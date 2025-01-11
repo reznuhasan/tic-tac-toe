@@ -1,34 +1,37 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Square from './components/Square/Square'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [values,setValues]=useState([
+    {id:0,text:""},
+    {id:1,text:""},
+    {id:2,text:""},
+    {id:3,text:""},
+    {id:4,text:""},
+    {id:5,text:""},
+    {id:6,text:""},
+    {id:7,text:""},
+    {id:8,text:""},
+  ])
+  const [checkValue,setCheckValue]=useState("X")
+  const handleValues=(valuesId)=>{
+    const newValues=values;
+    if(checkValue==='X'){
+      newValues[valuesId]={id:valuesId,text:'0'}
+      setCheckValue('0')
+    }else{
+      newValues[valuesId]={id:valuesId,text:'X'}
+      setCheckValue('X')
 
+    }
+    setValues(newValues)
+    
+  }
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className='board-container'>
+    {values.map((value,index)=><Square values={value} index={index} handleValues={handleValues} key={index}/>)}
+    </div>
   )
 }
 
