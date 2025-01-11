@@ -69,6 +69,7 @@ function App() {
     <>
       <div style={{textAlign:"center"}}>
         <h1>Tic Tac Toe Game</h1>
+        <span>click under box</span>
       </div>
       <div className='board-container'>
         {values.map((value, index) => <Square values={value} index={index} handleValues={handleValues} key={index} />)}
