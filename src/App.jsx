@@ -17,14 +17,15 @@ function App() {
   const [checkValue,setCheckValue]=useState("X")
   const handleValues=(valuesId)=>{
     const newValues=values;
-    if(checkValue==='X'){
+    if(checkValue==='X' && newValues[valuesId].text===""){
       newValues[valuesId]={id:valuesId,text:'0'}
       setCheckValue('0')
-    }else{
+    }else if(checkValue==='0' && newValues[valuesId].text===""){
       newValues[valuesId]={id:valuesId,text:'X'}
       setCheckValue('X')
 
     }
+    
     setValues(newValues)
     
   }
