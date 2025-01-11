@@ -44,10 +44,10 @@ function App() {
   const [winner, setWinner] = useState("")
   const handleValues = (valuesId) => {
     const newValues = values;
-    if (checkValue === 'X' && newValues[valuesId].text === "") {
+    if (checkValue === 'X' && newValues[valuesId].text === "" && winner==="") {
       newValues[valuesId] = { id: valuesId, text: '0' }
       setCheckValue('0')
-    } else if (checkValue === '0' && newValues[valuesId].text === "") {
+    } else if (checkValue === '0' && newValues[valuesId].text === "" && winner==="") {
       newValues[valuesId] = { id: valuesId, text: 'X' }
       setCheckValue('X')
 
